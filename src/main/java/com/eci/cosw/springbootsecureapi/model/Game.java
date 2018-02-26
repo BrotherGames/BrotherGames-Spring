@@ -5,22 +5,23 @@ public class Game {
     private String description;
     private long price;
     private int rate;
-    private Seller sellers[];
+    private ArrayList<Seller> sellers= new ArrayList<Seller>();
     private String photo;
     private String link;
-    private Comment comments[];
+    private ArrayList<Comment> comments=new ArrayList<Comment>();
 
 
     public Game(){
 
     }
 
-    public Game(String name,String description,long price, int rate,Seller[] sellers,String photo){
+    public Game(String name,String description,long price, int rate,ArrayList<Seller> sellers,String photo,ArrayList<Comment> comments){
         this.name=name;
         this.description=description;
         this.rate=rate;
         this.sellers=sellers;
         this.photo=photo;
+        this.comments=comments;
 
     }
 
@@ -34,14 +35,14 @@ public class Game {
     public int getRate() {
         return rate;
     }
-    public Seller[] getSellers() {
+    public ArrayList<Seller> getSellers() {
         return sellers;
     }
     public String getPhoto() {
         return photo;
     }
 
-    public Comment[] getComments() {
+    public ArrayList<Comment>  getComments() {
         return comments;
     }
 
@@ -55,14 +56,14 @@ public class Game {
     public void setRate(int rate) {
         this.rate=rate;
     }
-    public void setSellers(Seller[] sellers) {
+    public void setSellers(ArrayList<Seller>  sellers) {
         this.sellers=sellers;
     }
     public void setPhoto(String photo) {
         this.photo=photo;
     }
 
-    public void setComments(Comment[] comments) {
+    public void setComments(ArrayList<Comment>  comments) {
         this.comments = comments;
     }
 }
