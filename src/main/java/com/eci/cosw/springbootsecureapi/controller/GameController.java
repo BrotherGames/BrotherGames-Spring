@@ -26,29 +26,29 @@ import java.util.List;
         public Game getGame(@PathVariable String game){
             return gameService.getGame(game);
         }
-
-        @RequestMapping( value = "/topGames", method = RequestMethod.GET )
-        public List<Game> topGames(){
-            return gameService.topGames();
-        }
+         @RequestMapping( value = "/topGames", method = RequestMethod.GET )
+         public List<Game> topGames(){
+        return gameService.topGames();
+    }
         @RequestMapping( value = "/newGame", method = RequestMethod.POST )
-        public boolean setNewGame(@RequestBody Game game
+         public boolean setNewGame(@RequestBody Game game
         ){
-            gameService.createGame(game);
-            return true;
+        gameService.createGame(game);
+        return true;
         }
         @RequestMapping( value = "/newSeller", method = RequestMethod.POST )
         public boolean setNewSeller(@PathVariable Game game, Seller seller
-        ){
-            gameService.newSeller(game,seller);
-            return true;
+         ){
+        gameService.newSeller(game,seller);
+        return true;
         }
         @RequestMapping( value = "/newComment", method = RequestMethod.POST )
         public boolean setNewComment(@PathVariable Game game, Comment comment
         ){
-            gameService.newComment(game,comment);
-            return true;
+        gameService.newComment(game,comment);
+        return true;
         }
 
-    }
 }
+
+
