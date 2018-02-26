@@ -1,21 +1,23 @@
 package com.eci.cosw.springbootsecureapi.model;
 
+import java.util.List;
+
 public class Game {
     private String name;
+    private String photo;
     private String description;
     private long price;
     private int rate;
-    private ArrayList<Seller> sellers= new ArrayList<Seller>();
-    private String photo;
+    private List<Seller> sellers;
     private String link;
-    private ArrayList<Comment> comments=new ArrayList<Comment>();
+    private List<Comment> comments;
 
 
     public Game(){
 
     }
 
-    public Game(String name,String description,long price, int rate,ArrayList<Seller> sellers,String photo,ArrayList<Comment> comments){
+    public Game(String name,String description,long price, int rate,List<Seller> sellers,String photo,List<Comment> comments){
         this.name=name;
         this.description=description;
         this.rate=rate;
@@ -35,14 +37,14 @@ public class Game {
     public int getRate() {
         return rate;
     }
-    public ArrayList<Seller> getSellers() {
+    public List<Seller> getSellers() {
         return sellers;
     }
     public String getPhoto() {
         return photo;
     }
 
-    public ArrayList<Comment>  getComments() {
+    public List<Comment>  getComments() {
         return comments;
     }
 
@@ -56,14 +58,14 @@ public class Game {
     public void setRate(int rate) {
         this.rate=rate;
     }
-    public void setSellers(ArrayList<Seller>  sellers) {
+    public void setSellers(List<Seller>  sellers) {
         this.sellers=sellers;
     }
     public void setPhoto(String photo) {
         this.photo=photo;
     }
 
-    public void setComments(ArrayList<Comment>  comments) {
+    public void setComments(List<Comment>  comments) {
         this.comments = comments;
     }
 }

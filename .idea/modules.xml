@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BrotherGames-Spring.iml" filepath="$PROJECT_DIR$/.idea/modules/BrotherGames-Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BrotherGames-Spring.iml" filepath="$PROJECT_DIR$/BrotherGames-Spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/BrotherGames-Spring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/BrotherGames-Spring_main.iml" group="BrotherGames-Spring" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/BrotherGames-Spring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/BrotherGames-Spring_test.iml" group="BrotherGames-Spring" />
     </modules>
