@@ -4,14 +4,12 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 
+import com.eci.cosw.springbootsecureapi.model.Change;
 import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -52,7 +50,7 @@ public User setTodo(@RequestBody User user){
         String username = login.getUsername();
         String password = login.getPassword();
 
-        User user = userService.getUser( 0l );
+        User user = userService.getUser(0);
 
         if ( user == null )
         {
@@ -95,4 +93,20 @@ public User setTodo(@RequestBody User user){
         }
     }
 
+    @RequestMapping( value = "/changes/{email}", method = RequestMethod.GET )
+    public List<Change> getChangeList(@PathVariable(name = "email") String email){
+        return userService.getChangeList(email);
+    }
+
+    @RequestMapping( value = "/changes/{email}", method = RequestMethod.POST )
+    public Change setChange(@RequestBody Change change, @PathVariable(name = "email") String email){
+        return userService.addChange(change,email);
+    }
+
+    @RequestMapping( value = "/changes", method = RequestMethod.GET )
+    public List<Change> getAllChanges(){
+        return userService.getAllChanges();
+    }
+
 }
+

@@ -1,5 +1,9 @@
 package com.eci.cosw.springbootsecureapi.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import com.eci.cosw.springbootsecureapi.model.Change;
+
 /**
  * @author Santiago Carrillo
  * 8/21/17.
@@ -20,6 +24,8 @@ public class User
     private String username;
 
     private String image;
+    
+    private List<Change> changes = new ArrayList<Change>();
 
 
     public User()
@@ -33,6 +39,7 @@ public class User
         this.firstname = firstname;
         this.lastname = lastname;
         this.image = image;
+
     }
 
 
@@ -103,6 +110,14 @@ public class User
     public void setUsername( String username )
     {
         this.username = username;
+    }
+    
+    public List<Change> getListChange(){
+        return this.changes;
+    }
+    
+    public void setListChange(Change newChange){
+        this.changes.add(newChange);
     }
 
     @Override

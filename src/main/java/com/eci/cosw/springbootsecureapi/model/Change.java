@@ -10,6 +10,12 @@ public class Change{
     private Boolean accept;
 
     public Change(Integer id, String nameGame, String description, String image, String state, Boolean accept){
+        this.id=id;
+        this.nameGame=nameGame;
+        this.description=description;
+        this.image=image;
+        this.state=state;
+        this.accept=accept;
         
         
     }
