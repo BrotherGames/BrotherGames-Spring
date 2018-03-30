@@ -524,6 +524,25 @@ var Change = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/models/requests.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Requests; });
+var Requests = (function () {
+    function Requests(userRq, change1, change2) {
+        this.userRq = userRq;
+        this.change1 = change1;
+        this.change2 = change2;
+        this.state = "Pending";
+    }
+    return Requests;
+}());
+
+//# sourceMappingURL=requests.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/models/todo.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -552,6 +571,7 @@ var Todo = (function () {
 var User = (function () {
     function User(firstname, lastname, image) {
         this.changes = [];
+        this.listRequests = [];
         this.firstname = firstname;
         this.lastname = lastname;
         this.image = image;
@@ -671,7 +691,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/change-list-page/change-list-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>My List Exchanges</h2>\n<table class=\"table table-bordered\">\n <thead>\n   <tr>\n     <th>id</th>\n     <th>nameGame</th>\n     <th>description</th>\n     <th>image</th>\n     <th>state</th>\n   </tr>\n </thead>\n <tr *ngFor=\"let change of changes\">\n   <td>{{change.id}}</td>\n   <td>{{change.nameGame}}</td>\n   <td>{{change.description}}</td>\n   <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\n   <td>{{change.state}}</td>\n </tr>\n</table>"
+module.exports = "<h2>My List Exchanges</h2>\n<table class=\"table table-bordered\">\n <thead>\n   <tr>\n     <th>id</th>\n     <th>nameGame</th>\n     <th>description</th>\n     <th>image</th>\n     <th>state</th>\n   </tr>\n </thead>\n <tr *ngFor=\"let change of changes\">\n   <td>{{change.id}}</td>\n   <td>{{change.nameGame}}</td>\n   <td>{{change.description}}</td>\n   <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\n   <td>{{change.state}}</td>\n </tr>\n</table>\n\n<table class=\"table table-bordered\">\n  <thead>\n    <tr>\n      <th>User</th>\n      <th>User Game</th>\n      <th>Your Game</th>\n      <th>state</th>\n      <th>request</th>\n    </tr>\n  </thead>\n  <tr *ngFor=\"let requests of listRequests\">\n    <td>{{requests.userRq.firstname}}</td>\n    <td><img [src]=\"requests.change1.image\" width=\"150\" height=\"150\" /></td>\n    <td><img [src]=\"requests.change2.image\" width=\"150\" height=\"150\" /></td>\n    <td>{{requests.state}}</td>\n    <td><button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Accept</button></td>\n\n  </tr>\n </table>"
 
 /***/ }),
 
@@ -700,11 +720,15 @@ var ChangeListPageComponent = (function () {
         this.usersService = usersService;
         this.router = router;
         this.changes = [];
+        this.listRequests = [];
     }
     ChangeListPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.usersService.listChanges().subscribe(function (userResponse) {
             _this.changes = userResponse;
+        });
+        this.usersService.listRequests().subscribe(function (userResponse) {
+            _this.listRequests = userResponse;
         });
     };
     return ChangeListPageComponent;
@@ -761,6 +785,9 @@ var ChangeOkListPageComponent = (function () {
         this.usersService.listChanges().subscribe(function (userResponse) {
             _this.changes = userResponse;
         });
+    };
+    ChangeOkListPageComponent.prototype.createRequest = function (change1) {
+        this.change1 = change1;
     };
     ChangeOkListPageComponent.prototype.myEvent = function (event) {
         this.router.navigate(['/code']);
@@ -870,7 +897,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/exchange-list-page/exchange-list-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Tasks</h2>\n<table class=\"table table-bordered\">\n <thead>\n   <tr>\n     <th>Name Game</th>\n     <th>Description</th>\n     <th>Image</th>\n   </tr>\n </thead>\n <tr *ngFor=\"let change of exchanges\">\n    <td>{{change.nameGame}}</td>\n    <td>{{change.description}}</td>\n    <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\n    <td><button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Exchange</button></td>\n </tr>\n</table>"
+module.exports = "<h2>Tasks</h2>\n<table class=\"table table-bordered\">\n <thead>\n   <tr>\n     <th>Name Game</th>\n     <th>Description</th>\n     <th>Image</th>\n   </tr>\n </thead>\n <tr *ngFor=\"let change of exchanges\">\n    <td>{{change.nameGame}}</td>\n    <td>{{change.description}}</td>\n    <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\n    <td><button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Exchange</button></td>\n    <td><span>count: {{count}}</span></td>\n    <td><button ng-click=\"count = count + 1\" ng-init=\"count=0\">Increment</button></td>\n\n    \n    \n    \n        \n </tr>\n</table>"
 
 /***/ }),
 
@@ -880,8 +907,9 @@ module.exports = "<h2>Tasks</h2>\n<table class=\"table table-bordered\">\n <thea
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExchangeListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__change_list_page_changeOk_list_page_component__ = __webpack_require__("../../../../../src/app/pages/change-list-page/changeOk-list-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -894,10 +922,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ExchangeListComponent = (function () {
-    function ExchangeListComponent(usersService, router) {
+    function ExchangeListComponent(usersService, router, changeOk) {
         this.usersService = usersService;
         this.router = router;
+        this.changeOk = changeOk;
         this.exchanges = [];
     }
     ExchangeListComponent.prototype.ngOnInit = function () {
@@ -906,7 +936,7 @@ var ExchangeListComponent = (function () {
             _this.exchanges = userResponse;
         });
     };
-    ExchangeListComponent.prototype.myEvent = function (event) {
+    ExchangeListComponent.prototype.myEvent = function (event, change) {
         this.router.navigate(['/okChanges']);
     };
     return ExchangeListComponent;
@@ -917,10 +947,10 @@ ExchangeListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/exchange-list-page/exchange-list-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/exchange-list-page/exchange-list-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_users_service__["a" /* UsersService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_users_service__["a" /* UsersService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__change_list_page_changeOk_list_page_component__["a" /* ChangeOkListPageComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__change_list_page_changeOk_list_page_component__["a" /* ChangeOkListPageComponent */]) === "function" && _c || Object])
 ], ExchangeListComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=exchange-list-page.component.js.map
 
 /***/ }),
@@ -1598,6 +1628,7 @@ TodoService = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_change__ = __webpack_require__("../../../../../src/app/models/change.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_of__ = __webpack_require__("../../../../rxjs/add/observable/of.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_requests__ = __webpack_require__("../../../../../src/app/models/requests.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1617,6 +1648,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1665,6 +1697,12 @@ var UsersService = (function (_super) {
     };
     UsersService.prototype.listAllChanges = function () {
         return this.get('user/changes');
+    };
+    UsersService.prototype.createRequests = function (userRq, change1, change2) {
+        return this.post('user/requests/Camilo', new __WEBPACK_IMPORTED_MODULE_8__models_requests__["a" /* Requests */](userRq, change1, change2));
+    };
+    UsersService.prototype.listRequests = function () {
+        return this.get('user/requests/Camilo');
     };
     return UsersService;
 }(__WEBPACK_IMPORTED_MODULE_1__common_api_service__["a" /* APIService */]));

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 
 import com.eci.cosw.springbootsecureapi.model.Change;
+import com.eci.cosw.springbootsecureapi.model.Requests;
 import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.service.UserService;
 
@@ -29,11 +30,11 @@ public class UserController
     @RequestMapping( value = "/items", method = RequestMethod.GET )
     public List<User> getUsers(){
         return userService.getUsers();
-}
-@RequestMapping( value = "/items", method = RequestMethod.POST )
-public User setTodo(@RequestBody User user){
-    return userService.RegisterUser(user);
-}
+    }
+    @RequestMapping( value = "/items", method = RequestMethod.POST )
+    public User setTodo(@RequestBody User user){
+        return userService.RegisterUser(user);
+    }
 
     @RequestMapping( value = "/login", method = RequestMethod.POST )
     public Token login( @RequestBody User login )
@@ -106,6 +107,16 @@ public User setTodo(@RequestBody User user){
     @RequestMapping( value = "/changes", method = RequestMethod.GET )
     public List<Change> getAllChanges(){
         return userService.getAllChanges();
+    }
+
+    @RequestMapping( value = "/requests/{email}", method = RequestMethod.GET )
+    public List<Requests> getAllRequests(@PathVariable(name = "email") String email){
+        return userService.getAllRequests(email);
+    }
+
+    @RequestMapping( value = "/requests/{email}", method = RequestMethod.POST )
+    public Requests setRecuest(@RequestBody Requests requests, @PathVariable(name = "email") String email){
+        return userService.addRequests(requests,email);
     }
 
 }

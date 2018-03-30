@@ -1,5 +1,6 @@
 package com.eci.cosw.springbootsecureapi.service;
 
+import com.eci.cosw.springbootsecureapi.model.Requests;
 import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.model.Change;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +97,19 @@ public class UserServiceImpl
     }
 
     @Override
+    public Requests addRequests(Requests requests, String email) {
+        User tmp = this.findUserByEmail( email );
+        tmp.setRequests(requests);
+        return tmp.getRequests().get(tmp.getListChange().size() - 1);
+    }
+
+    @Override
+    public List<Requests> getAllRequests(String email) {
+        User tmp = this.findUserByEmail( email );
+        return tmp.getRequests();
+    }
+
+    @Override
     public List<Change> getAllChanges(){
         List<Change> tmp = new ArrayList<Change>();
         for (int i = 0; i < this.getUsers().size(); i++) {
@@ -107,5 +121,7 @@ public class UserServiceImpl
         }
         return tmp;
     }
+
+
 
 }

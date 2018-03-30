@@ -3,6 +3,7 @@ package com.eci.cosw.springbootsecureapi.model;
 import java.util.ArrayList;
 import java.util.List;
 import com.eci.cosw.springbootsecureapi.model.Change;
+import com.eci.cosw.springbootsecureapi.model.Requests;
 
 /**
  * @author Santiago Carrillo
@@ -26,6 +27,8 @@ public class User
     private String image;
     
     private List<Change> changes = new ArrayList<Change>();
+
+    private List<Requests> requests = new ArrayList<Requests>();
 
 
     public User()
@@ -97,6 +100,7 @@ public class User
         return lastname;
     }
 
+
     public void setLastname( String lastname )
     {
         this.lastname = lastname;
@@ -125,5 +129,13 @@ public class User
     {
         return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", firstname='"
             + firstname + '\'' + '}';
+    }
+
+    public List<Requests> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(Requests newRequests) {
+        this.requests.add(newRequests);
     }
 }

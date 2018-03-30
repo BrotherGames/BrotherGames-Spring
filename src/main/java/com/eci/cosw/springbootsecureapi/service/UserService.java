@@ -1,5 +1,6 @@
 package com.eci.cosw.springbootsecureapi.service;
 
+import com.eci.cosw.springbootsecureapi.model.Requests;
 import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.model.Change;
 import java.util.List;
@@ -27,4 +28,10 @@ public interface UserService
     List<Change> getAllChanges();
 
     Change addChange(Change change,String email);
+
+    Requests addRequests(Requests requests,String email);
+
+    List<Requests> getAllRequests(String email);
+
+
 }
