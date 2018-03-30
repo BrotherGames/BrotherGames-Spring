@@ -13,11 +13,18 @@ public interface UserService
 {
     List<User> getUsers();
 
-    User getUser( Integer id );
+
+
+
+    User getUser( long l );
+
 
     User createUser( User user );
+    public User updateUser(User user,User u);
 
     User findUserByEmail( String email );
+
+    User findUserById( Integer id );
 
     User findUserByEmailAndPassword( String email, String password );
 
