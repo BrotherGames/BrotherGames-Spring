@@ -28,15 +28,14 @@
           return groups;
       }
 
-
-     // @Override
+      @Override
       public Game getGame(String name) {
-          return null;
+          return gameRepository.game(name);
       }
 
-    //  @Override
+  @Override
       public List<Game> getTopGame() {
-          return null;
+          return gameRepository.topGames(); 
       }
 
      // @Override

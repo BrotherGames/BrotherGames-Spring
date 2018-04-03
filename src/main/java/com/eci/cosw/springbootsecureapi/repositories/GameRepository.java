@@ -10,5 +10,7 @@ import java.util.List;
 public interface GameRepository extends JpaRepository<Game, Long> {
 
     @Query("SELECT g FROM Group g WHERE g.nombre=?1")
-    List<Game> names(String name);
+    Game game(String name);
+     @Query("SELECT g FROM Group g ")
+    List<Game> topGames();
 }

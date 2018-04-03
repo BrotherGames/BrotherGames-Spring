@@ -6,7 +6,7 @@ import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 
 @Entity
-@Table (name="Game")
+@Table (name="game")
 public class Game {
     private String name;
     private String photo;
@@ -18,12 +18,12 @@ public class Game {
 
     private String link;
     private List<Comment> comments;
-    private long id;
+    private int id;
 
 
 
 
-    public Game(String name,String description,long id, int rate,List<Seller> sellers,String photo,List<Comment> comments){
+    public Game(String name,String description,int id, int rate,List<Seller> sellers,String photo,List<Comment> comments){
         this.name=name;
         this.description=description;
         this.rateAcum=rate;
@@ -91,7 +91,7 @@ public class Game {
 
         this.photo=photo;
     }
-    public void setId(long id){
+    public void setId(int id){
 
         this.id=id;
     }
