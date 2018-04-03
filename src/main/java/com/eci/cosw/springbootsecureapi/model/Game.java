@@ -1,71 +1,121 @@
+
 package com.eci.cosw.springbootsecureapi.model;
 
+import javax.persistence.*;
 import java.util.List;
+import static javax.persistence.CascadeType.ALL;
 
+@Entity
+@Table (name="Game")
 public class Game {
     private String name;
     private String photo;
     private String description;
-    private long price;
-    private int rate;
+    private int rateAcum;
     private List<Seller> sellers;
+
+
+
     private String link;
     private List<Comment> comments;
+    private long id;
 
 
-    public Game(){
 
-    }
 
-    public Game(String name,String description,long price, int rate,List<Seller> sellers,String photo,List<Comment> comments){
+    public Game(String name,String description,long id, int rate,List<Seller> sellers,String photo,List<Comment> comments){
         this.name=name;
         this.description=description;
-        this.rate=rate;
+        this.rateAcum=rate;
         this.sellers=sellers;
         this.photo=photo;
         this.comments=comments;
+        this.id=id;
 
     }
 
-
+    @Column(name="name",nullable = false,length = 100)
     public String getName() {
+
         return name;
     }
-    public String getDescription() {
+    @Column(name="description",nullable = false,length = 300)
+    public String getDescription()
+    {
         return description;
     }
-    public int getRate() {
-        return rate;
-    }
-    public List<Seller> getSellers() {
+    @Column(name="rate",nullable = false,length = 150)
+
+    @OneToMany(cascade=ALL)
+    @JoinColumn(name="Sellerid", referencedColumnName="id", nullable=false,insertable = false, updatable = false)
+    public List<Seller> getSellers()
+    {
+
         return sellers;
     }
-    public String getPhoto() {
+    @Column(name="photo",nullable = false,length = 150)
+    public String getPhoto()
+    {
+
         return photo;
     }
-
+    @OneToMany(cascade=ALL)
+    @JoinColumn(name="Gameid", referencedColumnName="id", nullable=false,insertable=false, updatable=false)
     public List<Comment>  getComments() {
         return comments;
+    }
+    @Id
+    @Column(name="id",nullable = false,length = 150)
+    public long  getId() {
+
+        return id;
     }
 
     public void setName(String name) {
         this.name=name;
     }
     public void setDescription(String description) {
+
         this.description=description;
     }
 
     public void setRate(int rate) {
-        this.rate=rate;
+
+        this.rateAcum=rate;
     }
     public void setSellers(List<Seller>  sellers) {
+
         this.sellers=sellers;
     }
     public void setPhoto(String photo) {
+
         this.photo=photo;
     }
+    public void setId(long id){
 
-    public void setComments(List<Comment>  comments) {
-        this.comments = comments;
+        this.id=id;
+    }
+    public void setComments(String content,String user, int rate, int id) {
+        List<Comment> commentsAll= getComments();
+        Comment c=new Comment(content,user,commentsAll.size()+1,rate);
+        commentsAll.add(c);
+
+    }
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+    public int getRate(){
+        int rate=0;
+
+        for(int i=0;i<comments.size();i++){
+            rate=comments.get(i).getRate();
+
+        }
+        return rate/comments.size();
+
     }
 }

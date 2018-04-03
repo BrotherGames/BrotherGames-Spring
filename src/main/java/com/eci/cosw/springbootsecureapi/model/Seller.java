@@ -1,37 +1,62 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.eci.cosw.springbootsecureapi.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author Kazu
+ */
+@Entity
+@Table(name="Seller")
 public class Seller {
 
-        private String platform;
-        private long price;
+        private String price;
         private String link;
+        private long idGame;
 
 
 
-        public Seller(){
 
-        }
 
-        public Seller(String platform,long price,String link){
-            this.platform=platform;
+
+
+
+
+        public Seller(long idGame, String price, String link){
+
             this.price=price;
             this.link=link;
+            this.idGame=idGame;
+
 
         }
 
+    @Column(name = "price", nullable = false, length = 100)
+        public String getPrice() {
 
-        public String getPlatform() {
-            return platform;
-        }
-        public long getPrice() {
             return price;
         }
+    @Column(name = "idGame", nullable = false, length = 100)
+         public long getIdGame() {
+         return idGame;
+        }
+
+
+    @Column(name = "link", nullable = false, length = 100)
         public String getLink() {
             return link;
         }
-
-        public void setPlatform(String platform){this.platform=platform;}
-        public void setPrice(long price) {
+    public void setIdGame(long idGame) {
+        this.idGame = idGame;
+    }
+                public void setPrice(String price ) {
             this.price=price;
         }
         public void setLink(String link) {
