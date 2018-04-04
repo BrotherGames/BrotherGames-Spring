@@ -19,11 +19,11 @@ public class GameController {
 
     @RequestMapping( path="/{name}", method = RequestMethod.GET )
     public Game getGames(@PathVariable String name){
-
         return gameService.getGame(name);
     }
-    @RequestMapping( value =" top", method = RequestMethod.GET )
+    @RequestMapping( value ="/game", method = RequestMethod.GET )
     public List<Game> topGames(){
+        System.out.println("hollal");
         return gameService.getTopGame();
     }
     @RequestMapping(  path="/{name}" ,method = RequestMethod.POST)

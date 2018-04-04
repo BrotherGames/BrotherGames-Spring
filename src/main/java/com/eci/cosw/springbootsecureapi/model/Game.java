@@ -1,21 +1,39 @@
 
 package com.eci.cosw.springbootsecureapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table (name="games")
-public class Game {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Game implements java.io.Serializable{
+    private int id;
+    private int rateAcum;
     private String name;
     private String photo;
     private String description;
-    private int rateAcum;
-    private List<Seller> sellers;
-    private List<Comment> comments;
-    private int id;
 
+
+
+    //private List<Game> games;
+    // private List<Seller> sellers;
+    //private List<Comment> comments;
+
+    public Game(){}
+
+    public Game(int id, int rateAcum, String name, String photo, String description) {
+        this.id = id;
+        this.rateAcum = rateAcum;
+        this.name = name;
+        this.photo = photo;
+        this.description = description;
+    }
+
+    /*
     public Game(String name, String photo, String description, int rateAcum, List<Seller> sellers, List<Comment> comments, int id) {
         this.name = name;
         this.photo = photo;
@@ -23,6 +41,23 @@ public class Game {
         this.rateAcum = rateAcum;
         this.sellers = sellers;
         this.comments = comments;
+        this.id = id;
+    }*/
+   /* public List<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }*/
+
+    @Id
+    @Column(name="id",nullable = false,length = 150)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,7 +88,7 @@ public class Game {
         this.description = description;
     }
 
-    @Column(name="link",nullable = false,length = 150)
+    @Column(name="rate",nullable = false,length = 150)
     public int getRateAcum() {
         return rateAcum;
     }
@@ -62,12 +97,13 @@ public class Game {
         this.rateAcum = rateAcum;
     }
 
-    @OneToMany(mappedBy="idGame")
+
+  /*  @OneToMany(mappedBy="idGame")
     public List<Seller> getSellers() {
         return sellers;
     }
 
-    public void setSellers(List<Seller> sellers) {
+   / public void setSellers(List<Seller> sellers) {
         this.sellers = sellers;
     }
 
@@ -79,14 +115,6 @@ public class Game {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+*/
 
-    @Id
-    @Column(name="id",nullable = false,length = 150)
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }
