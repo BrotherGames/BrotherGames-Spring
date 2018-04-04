@@ -5,49 +5,41 @@
  */
 package com.eci.cosw.springbootsecureapi.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
  * @author Kazu
  */
 @Entity
-@Table(name = "Comment" )
+@Table(name = "comment" )
 public class Comment {
 
     private String content;
     private String user;
     private int rate;
     private long id;
+    private Game gameId;
 
     public Comment() {
 
     }
 
-    public Comment(String content,  String user, long id,int rate) {
+    public Comment(String content, String user, int rate, long id, Game gameId) {
         this.content = content;
         this.user = user;
+        this.rate = rate;
         this.id = id;
-        this.rate=rate;
+        this.gameId = gameId;
     }
+
     @Column(name = "content", nullable = false, length = 1000)
-    public String getContenido() {
+    public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
-    }
-    @Column(name = "rate", nullable = false, length = 1000)
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
     }
 
     @Column(name = "user", nullable = false, length = 100)
@@ -55,8 +47,17 @@ public class Comment {
         return user;
     }
 
-    public void setUsuario(String usuario) {
-        this.user = usuario;
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    @Column(name = "rate", nullable = false, length = 1000)
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
     @Id
@@ -69,4 +70,13 @@ public class Comment {
         this.id = id;
     }
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="GAMEID_ID")
+    public Game getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(Game gameId) {
+        this.gameId = gameId;
+    }
 }

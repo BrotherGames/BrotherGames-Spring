@@ -6,116 +6,87 @@ import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 
 @Entity
-@Table (name="game")
+@Table (name="games")
 public class Game {
     private String name;
     private String photo;
     private String description;
     private int rateAcum;
     private List<Seller> sellers;
-
-
-
-    private String link;
     private List<Comment> comments;
     private int id;
 
-
-
-
-    public Game(String name,String description,int id, int rate,List<Seller> sellers,String photo,List<Comment> comments){
-        this.name=name;
-        this.description=description;
-        this.rateAcum=rate;
-        this.sellers=sellers;
-        this.photo=photo;
-        this.comments=comments;
-        this.id=id;
-
+    public Game(String name, String photo, String description, int rateAcum, List<Seller> sellers, List<Comment> comments, int id) {
+        this.name = name;
+        this.photo = photo;
+        this.description = description;
+        this.rateAcum = rateAcum;
+        this.sellers = sellers;
+        this.comments = comments;
+        this.id = id;
     }
 
     @Column(name="name",nullable = false,length = 100)
     public String getName() {
-
         return name;
-    }
-    @Column(name="description",nullable = false,length = 300)
-    public String getDescription()
-    {
-        return description;
-    }
-    @Column(name="rate",nullable = false,length = 150)
-
-    @OneToMany(cascade=ALL)
-    @JoinColumn(name="Sellerid", referencedColumnName="id", nullable=false,insertable = false, updatable = false)
-    public List<Seller> getSellers()
-    {
-
-        return sellers;
-    }
-    @Column(name="photo",nullable = false,length = 150)
-    public String getPhoto()
-    {
-
-        return photo;
-    }
-    @OneToMany(cascade=ALL)
-    @JoinColumn(name="Gameid", referencedColumnName="id", nullable=false,insertable=false, updatable=false)
-    public List<Comment>  getComments() {
-        return comments;
-    }
-    @Id
-    @Column(name="id",nullable = false,length = 150)
-    public long  getId() {
-
-        return id;
     }
 
     public void setName(String name) {
-        this.name=name;
-    }
-    public void setDescription(String description) {
-
-        this.description=description;
+        this.name = name;
     }
 
-    public void setRate(int rate) {
-
-        this.rateAcum=rate;
+    @Column(name="photo",nullable = false,length = 150)
+    public String getPhoto() {
+        return photo;
     }
-    public void setSellers(List<Seller>  sellers) {
 
-        this.sellers=sellers;
-    }
     public void setPhoto(String photo) {
-
-        this.photo=photo;
-    }
-    public void setId(int id){
-
-        this.id=id;
-    }
-    public void setComments(String content,String user, int rate, int id) {
-        List<Comment> commentsAll= getComments();
-        Comment c=new Comment(content,user,commentsAll.size()+1,rate);
-        commentsAll.add(c);
-
-    }
-    public String getLink() {
-        return link;
+        this.photo = photo;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    @Column(name="description",nullable = false,length = 300)
+    public String getDescription() {
+        return description;
     }
-    public int getRate(){
-        int rate=0;
 
-        for(int i=0;i<comments.size();i++){
-            rate=comments.get(i).getRate();
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-        }
-        return rate/comments.size();
+    @Column(name="link",nullable = false,length = 150)
+    public int getRateAcum() {
+        return rateAcum;
+    }
 
+    public void setRateAcum(int rateAcum) {
+        this.rateAcum = rateAcum;
+    }
+
+    @OneToMany(mappedBy="idGame")
+    public List<Seller> getSellers() {
+        return sellers;
+    }
+
+    public void setSellers(List<Seller> sellers) {
+        this.sellers = sellers;
+    }
+
+    @OneToMany(mappedBy="gameId")
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @Id
+    @Column(name="id",nullable = false,length = 150)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -3,23 +3,22 @@
   import com.eci.cosw.springbootsecureapi.model.Game;
   import com.eci.cosw.springbootsecureapi.repositories.CommentRepository;
   import com.eci.cosw.springbootsecureapi.repositories.GameRepository;
-  import com.eci.cosw.springbootsecureapi.repositories.SellerRepository;
   import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.stereotype.Service;
 
   import java.util.List;
 
+  @Service
   public class GameServiceDB implements GameService{
 
-     // @Autowired
+    @Autowired
       private GameRepository gameRepository;
 
-    //  @Autowired
+     @Autowired
       private CommentRepository cmrepo;
 
-     // @Autowired
-      private SellerRepository claserepo;
 
-     // @Autowired
+     @Autowired
       private UserService userService;
 
 
@@ -30,12 +29,13 @@
 
       @Override
       public Game getGame(String name) {
+
           return gameRepository.game(name);
       }
 
   @Override
       public List<Game> getTopGame() {
-          return gameRepository.topGames(); 
+          return gameRepository.findAll();
       }
 
      // @Override

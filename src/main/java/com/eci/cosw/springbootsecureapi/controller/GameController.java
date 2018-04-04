@@ -24,7 +24,6 @@ public class GameController {
     }
     @RequestMapping( value =" top", method = RequestMethod.GET )
     public List<Game> topGames(){
-
         return gameService.getTopGame();
     }
     @RequestMapping(  path="/{name}" ,method = RequestMethod.POST)
