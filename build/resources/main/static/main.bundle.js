@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse\">\r\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n  <a class=\"navbar-brand\" href=\"#\">BrotherGames</a>\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"/\" routerLink=\"/\">Home</a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"/profile\" routerLink=\"/profile\">Profile</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"/topGames\" routerLink=\"/topGames\">Games <span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"/listexChanges\" routerLink=\"/listexChanges\">Games Exchange</a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"/listChanges\" routerLink=\"/listChanges\">List Games Exchange</a>\r\n      </li>      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"/editChanges\" routerLink=\"/editChanges\">Edit Games Exchange</a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n        <a href=\"#\" class=\"nav-link\" (click)=\"signOut()\">(Sign Out)</a>\r\n      </li>\r\n      </ul>\r\n\r\n      <form class=\"form-inline my-2 my-lg-0\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n\r\n          <li *ngIf=\"!isLoggedIn()\" class=\"nav-item active\">\r\n            <a class=\"nav-link\"  routerLinkActive=\"/register\" routerLink=\"/register\">REGISTER<span class=\"sr-only\">(current)</span></a>\r\n          </li>\r\n\r\n          <li *ngIf=\"!isLoggedIn()\" class=\"nav-item active\">\r\n            <a class=\"nav-link\" routerLinkActive=\"/signin\" routerLink=\"/signin\">SIGN IN<span class=\"sr-only\">(current)</span></a>\r\n          </li>\r\n\r\n        </ul>\r\n    </form>\r\n\r\n  </div>\r\n</nav>\r\n\r\n<div class=\"container\">\r\n  <router-outlet></router-outlet>\r\n</div>"
+module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse\">\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n  <a class=\"navbar-brand\" href=\"#\">BrotherGames</a>\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/\" routerLink=\"/\">Home</a>\n      </li>\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/profile\" routerLink=\"/profile\">Profile</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/topGames\" routerLink=\"/topGames\">Games <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/listexChanges\" routerLink=\"/listexChanges\">Games Exchange</a>\n      </li>\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/listChanges\" routerLink=\"/listChanges\">List Games Exchange</a>\n      </li>      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/editChanges\" routerLink=\"/editChanges\">Edit Games Exchange</a>\n      </li>\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a href=\"#\" class=\"nav-link\" (click)=\"signOut()\">(Sign Out)</a>\n      </li>\n      </ul>\n\n      <form class=\"form-inline my-2 my-lg-0\">\n        <ul class=\"navbar-nav mr-auto\">\n\n          <li *ngIf=\"!isLoggedIn()\" class=\"nav-item active\">\n            <a class=\"nav-link\"  routerLinkActive=\"/register\" routerLink=\"/register\">REGISTER<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n          <li *ngIf=\"!isLoggedIn()\" class=\"nav-item active\">\n            <a class=\"nav-link\" routerLinkActive=\"/signin\" routerLink=\"/signin\">SIGN IN<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n        </ul>\n    </form>\n\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -712,7 +712,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/change-edit-page/change-edit-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <br>\r\n    <div id=\"centerbrand\">\r\n        <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"170\" height=\"80\">\r\n    </div>\r\n    <h2 class=\"text-center\">Change Your Game</h2>\r\n    <br>\r\n    <br>\r\n\r\n    <form [formGroup]=\"changeForm\" (ngSubmit)=\"onSubmit()\" novalidate>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"nameGame\">Name Game</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"nameGame\" formControlName=\"nameGame\" required>\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"description\">Description</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"description\" formControlName=\"description\" required>\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"image\">URL Image (Your Game)</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"image\" formControlName=\"image\" required>\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"state\">State Of The Game</label>    \r\n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"like New\"> Like New <br>\r\n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"very Good\" checked> Very Good <br>\r\n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"good\"> Good <br>\r\n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"regular\"> Regular <br>\r\n        </div>        \r\n        <div class=\"form-group\">\r\n            <label for=\"accept\">Terms and Conditions</label>\r\n            <input type=\"checkbox\" class=\"form-control\" id=\"accept\" formControlName=\"accept\" required> I accept the terms of service <br>\r\n        </div>\r\n\r\n        <br>\r\n\r\n        <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!changeForm.valid\">Add Game</button>\r\n\r\n    </form>\r\n</div>"
+module.exports = "<div class=\"container\">\n    <br>\n    <div id=\"centerbrand\">\n        <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"170\" height=\"80\">\n    </div>\n    <h2 class=\"text-center\">Change Your Game</h2>\n    <br>\n    <br>\n\n    <form [formGroup]=\"changeForm\" (ngSubmit)=\"onSubmit()\" novalidate>\n\n        <div class=\"form-group\">\n            <label for=\"nameGame\">Name Game</label>\n            <input type=\"text\" class=\"form-control\" id=\"nameGame\" formControlName=\"nameGame\" required>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"description\">Description</label>\n            <input type=\"text\" class=\"form-control\" id=\"description\" formControlName=\"description\" required>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"image\">URL Image (Your Game)</label>\n            <input type=\"text\" class=\"form-control\" id=\"image\" formControlName=\"image\" required>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"state\">State Of The Game</label>    \n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"like New\"> Like New <br>\n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"very Good\" checked> Very Good <br>\n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"good\"> Good <br>\n            <input type=\"radio\" name=\"state\" class=\"form-control\" id=\"state\" formControlName=\"state\" value=\"regular\"> Regular <br>\n        </div>        \n        <div class=\"form-group\">\n            <label for=\"accept\">Terms and Conditions</label>\n            <input type=\"checkbox\" class=\"form-control\" id=\"accept\" formControlName=\"accept\" required> I accept the terms of service <br>\n        </div>\n\n        <br>\n\n        <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!changeForm.valid\">Add Game</button>\n\n    </form>\n</div>"
 
 /***/ }),
 
@@ -722,7 +722,7 @@ module.exports = "<div class=\"container\">\r\n    <br>\r\n    <div id=\"centerb
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeEditPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_change_service__ = __webpack_require__("../../../../../src/app/services/change.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -739,8 +739,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ChangeEditPageComponent = (function () {
-    function ChangeEditPageComponent(changeService, formBuilder, router) {
-        this.changeService = changeService;
+    function ChangeEditPageComponent(usersService, formBuilder, router) {
+        this.usersService = usersService;
         this.formBuilder = formBuilder;
         this.router = router;
     }
@@ -755,7 +755,7 @@ var ChangeEditPageComponent = (function () {
     };
     ChangeEditPageComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.changeService.create(this.changeForm.get('nameGame').value, this.changeForm.get('description').value, this.changeForm.get('image').value, this.changeForm.get('state').value, Boolean(this.changeForm.get('accept').value)).subscribe(function (serverResponse) {
+        this.usersService.createChange(this.changeForm.get('nameGame').value, this.changeForm.get('description').value, this.changeForm.get('image').value, this.changeForm.get('state').value, Boolean(this.changeForm.get('accept').value)).subscribe(function (serverResponse) {
             _this.router.navigate(['/listChanges']);
         }, function (error) {
             console.log(error);
@@ -770,7 +770,7 @@ ChangeEditPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/change-edit-page/change-edit-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/change-edit-page/change-edit-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_change_service__["a" /* ChangeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_change_service__["a" /* ChangeService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _c || Object])
 ], ChangeEditPageComponent);
 
 var _a, _b, _c;
@@ -799,7 +799,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/change-list-page/change-list-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>My List Exchanges</h2>\r\n<table class=\"table table-bordered\">\r\n <thead>\r\n   <tr>\r\n     <th>id</th>\r\n     <th>nameGame</th>\r\n     <th>description</th>\r\n     <th>image</th>\r\n     <th>state</th>\r\n   </tr>\r\n </thead>\r\n <tr *ngFor=\"let change of changes\">\r\n   <td>{{change.id}}</td>\r\n   <td>{{change.nameGame}}</td>\r\n   <td>{{change.description}}</td>\r\n   <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\r\n   <td>{{change.state}}</td>\r\n </tr>\r\n</table>"
+module.exports = "<h2>My List Exchanges</h2>\n<table class=\"table table-bordered\">\n <thead>\n   <tr>\n     <th>id</th>\n     <th>nameGame</th>\n     <th>description</th>\n     <th>image</th>\n     <th>state</th>\n   </tr>\n </thead>\n <tr *ngFor=\"let change of changes\">\n   <td>{{change.id}}</td>\n   <td>{{change.nameGame}}</td>\n   <td>{{change.description}}</td>\n   <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\n   <td>{{change.state}}</td>\n </tr>\n</table>"
 
 /***/ }),
 
@@ -809,9 +809,8 @@ module.exports = "<h2>My List Exchanges</h2>\r\n<table class=\"table table-borde
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeListPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_change_service__ = __webpack_require__("../../../../../src/app/services/change.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_change__ = __webpack_require__("../../../../../src/app/models/change.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -824,20 +823,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ChangeListPageComponent = (function () {
-    function ChangeListPageComponent(changeService, router) {
-        this.changeService = changeService;
+    function ChangeListPageComponent(usersService, router) {
+        this.usersService = usersService;
         this.router = router;
-        this.changes = [
-            new __WEBPACK_IMPORTED_MODULE_2__models_change__["a" /* Change */](1, "", "", "https://ugc.kn3.net/i/origin/http://www.noticiasdot.com/publicaciones/galerias/Nintendo/2007/NDS_Donkey-Kong-Jungle-Climber-wallpaper/NDS_Donkey-Kong-Jungle-Climber-wallpaper-02.jpg", "", true),
-        ];
+        this.changes = [];
+        this.listRequests = [];
     }
     ChangeListPageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.changeService.list().subscribe(function (changeResponse) {
-            _this.changes = changeResponse;
+        this.usersService.listChanges().subscribe(function (userResponse) {
+            _this.changes = userResponse;
         });
+        //this.usersService.listRequests().subscribe(userResponse => {
+        //this.listRequests = userResponse;
+        //  })
     };
     return ChangeListPageComponent;
 }());
@@ -847,7 +847,7 @@ ChangeListPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/change-list-page/change-list-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/change-list-page/change-list-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_change_service__["a" /* ChangeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_change_service__["a" /* ChangeService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
 ], ChangeListPageComponent);
 
 var _a, _b;
@@ -858,7 +858,7 @@ var _a, _b;
 /***/ "../../../../../src/app/pages/change-list-page/changeOk-list-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>My List Exchanges</h2>\r\n<table class=\"table table-bordered\">\r\n <thead>\r\n   <tr>\r\n     <th>nameGame</th>\r\n     <th>description</th>\r\n     <th>image</th>\r\n     <th>Add</th>\r\n   </tr>\r\n </thead>\r\n <tr *ngFor=\"let change of changes\">\r\n   <td>{{change.nameGame}}</td>\r\n   <td>{{change.description}}</td>\r\n   <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\r\n   <td><button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Exchange</button></td>\r\n </tr>\r\n</table>"
+module.exports = "<h2>My List Exchanges</h2>\n<table class=\"table table-bordered\">\n <thead>\n   <tr>\n     <th>nameGame</th>\n     <th>description</th>\n     <th>image</th>\n     <th>Add</th>\n   </tr>\n </thead>\n <tr *ngFor=\"let change of changes\">\n   <td>{{change.nameGame}}</td>\n   <td>{{change.description}}</td>\n   <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\n   <td><button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Exchange</button></td>\n </tr>\n</table>"
 
 /***/ }),
 
@@ -868,9 +868,8 @@ module.exports = "<h2>My List Exchanges</h2>\r\n<table class=\"table table-borde
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeOkListPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_change_service__ = __webpack_require__("../../../../../src/app/services/change.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_change__ = __webpack_require__("../../../../../src/app/models/change.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -883,20 +882,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ChangeOkListPageComponent = (function () {
-    function ChangeOkListPageComponent(changeService, router) {
-        this.changeService = changeService;
+    function ChangeOkListPageComponent(usersService, router) {
+        this.usersService = usersService;
         this.router = router;
-        this.changes = [
-            new __WEBPACK_IMPORTED_MODULE_2__models_change__["a" /* Change */](1, "Donkey Kong", "Adventure", "https://ugc.kn3.net/i/origin/http://www.noticiasdot.com/publicaciones/galerias/Nintendo/2007/NDS_Donkey-Kong-Jungle-Climber-wallpaper/NDS_Donkey-Kong-Jungle-Climber-wallpaper-02.jpg", "", true),
-        ];
+        this.changes = [];
     }
     ChangeOkListPageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.changeService.list().subscribe(function (changeResponse) {
-            _this.changes = changeResponse;
+        this.usersService.listChanges().subscribe(function (userResponse) {
+            _this.changes = userResponse;
         });
+    };
+    ChangeOkListPageComponent.prototype.createRequest = function (change1) {
+        this.change1 = change1;
     };
     ChangeOkListPageComponent.prototype.myEvent = function (event) {
         this.router.navigate(['/code']);
@@ -909,7 +908,7 @@ ChangeOkListPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/change-list-page/changeOk-list-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/change-list-page/change-list-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_change_service__["a" /* ChangeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_change_service__["a" /* ChangeService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_users_service__["a" /* UsersService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
 ], ChangeOkListPageComponent);
 
 var _a, _b;
@@ -938,7 +937,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/code-accept-page/code-accept-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Code Accept</h1>\r\n<br>\r\n<br>\r\n<img src=\"/assets/images/QR.png\" width=\"150\" height=\"150\" />\r\n<br>\r\n<br>\r\n<p>This QR code is to confirm the transaction, and to make a claim.</p>\r\n<br>\r\n<br>\r\n<button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Accept</button>\r\n"
+module.exports = "<h1>Code Accept</h1>\n<br>\n<br>\n<img src=\"/assets/images/QR.png\" width=\"150\" height=\"150\" />\n<br>\n<br>\n<p>This QR code is to confirm the transaction, and to make a claim.</p>\n<br>\n<br>\n<button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Accept</button>\n"
 
 /***/ }),
 
@@ -1091,7 +1090,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/edit-profile-page/edit-profile-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <h1>Edit Profile</h1>\r\n    <hr>\r\n    <div class=\"row\">\r\n        <!-- left column -->\r\n        <div class=\"col-md-3\">\r\n            <div class=\"text-center\">\r\n                <img src=\"//placehold.it/100\" class=\"avatar img-circle\" alt=\"avatar\" width=\"200\" height=\"200\">\r\n                <h6>Upload a different photo...</h6>\r\n\r\n                <input type=\"file\" class=\"form-control\">\r\n            </div>\r\n        </div>\r\n\r\n        <!-- edit form column -->\r\n        <div class=\"col-md-9 personal-info\">\r\n\r\n            <h3>Personal info</h3>\r\n\r\n            <form class=\"form-horizontal\" role=\"form\">\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">Email:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <input class=\"form-control\" type=\"text\">\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">First Name:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <input class=\"form-control\" type=\"text\">\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">Last Name:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <input class=\"form-control\" type=\"text\">\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">User Name:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <input class=\"form-control\" type=\"text\">\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-md-3 control-label\">Description:</label>\r\n                    <div class=\"col-md-8\">\r\n                        <input class=\"form-control\" type=\"text\">\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-md-3 control-label\"></label>\r\n                    <div class=\"col-md-8\">\r\n                        <input type=\"button\" class=\"btn btn-primary\" value=\"Save Changes\" routerLinkActive=\"/profile\" routerLink=\"/profile\">\r\n                        <span></span>\r\n                        <input type=\"reset\" class=\"btn btn-default\" value=\"Cancel\" routerLinkActive=\"/profile\" routerLink=\"/profile\">\r\n                    </div>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n<hr>"
+module.exports = "<div class=\"container\">\n    <h1>Edit Profile</h1>\n    <hr>\n    <div class=\"row\">\n        <!-- left column -->\n        <div class=\"col-md-3\">\n            <div class=\"text-center\">\n                <img src=\"//placehold.it/100\" class=\"avatar img-circle\" alt=\"avatar\" width=\"200\" height=\"200\">\n                <h6>Upload a different photo...</h6>\n\n                <input type=\"file\" class=\"form-control\">\n            </div>\n        </div>\n\n        <!-- edit form column -->\n        <div class=\"col-md-9 personal-info\">\n\n            <h3>Personal info</h3>\n\n            <form class=\"form-horizontal\" role=\"form\">\n                <div class=\"form-group\">\n                    <label class=\"col-lg-3 control-label\">Email:</label>\n                    <div class=\"col-lg-8\">\n                        <input class=\"form-control\" type=\"text\">\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"col-lg-3 control-label\">First Name:</label>\n                    <div class=\"col-lg-8\">\n                        <input class=\"form-control\" type=\"text\">\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"col-lg-3 control-label\">Last Name:</label>\n                    <div class=\"col-lg-8\">\n                        <input class=\"form-control\" type=\"text\">\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"col-lg-3 control-label\">User Name:</label>\n                    <div class=\"col-lg-8\">\n                        <input class=\"form-control\" type=\"text\">\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"col-md-3 control-label\">Description:</label>\n                    <div class=\"col-md-8\">\n                        <input class=\"form-control\" type=\"text\">\n                    </div>\n                </div>\n\n                <div class=\"form-group\">\n                    <label class=\"col-md-3 control-label\"></label>\n                    <div class=\"col-md-8\">\n                        <input type=\"button\" class=\"btn btn-primary\" value=\"Save Changes\" routerLinkActive=\"/profile\" routerLink=\"/profile\">\n                        <span></span>\n                        <input type=\"reset\" class=\"btn btn-default\" value=\"Cancel\" routerLinkActive=\"/profile\" routerLink=\"/profile\">\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>\n<hr>"
 
 /***/ }),
 
@@ -1161,7 +1160,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/exchange-list-page/exchange-list-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Tasks</h2>\r\n<table class=\"table table-bordered\">\r\n <thead>\r\n   <tr>\r\n     <th>Name Game</th>\r\n     <th>Description</th>\r\n     <th>Image</th>\r\n   </tr>\r\n </thead>\r\n <tr *ngFor=\"let change of exchanges\">\r\n    <td>{{change.nameGame}}</td>\r\n    <td>{{change.description}}</td>\r\n    <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\r\n    <td><button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Exchange</button></td>\r\n </tr>\r\n</table>"
+module.exports = "<h2>My exchanges</h2>\n<table class=\"table table-bordered\">\n <thead>\n   <tr>\n     <th>Name Game</th>\n     <th>Description</th>\n     <th>Image</th>\n   </tr>\n </thead>\n <tr *ngFor=\"let change of exchanges\">\n    <td>{{change.nameGame}}</td>\n    <td>{{change.description}}</td>\n    <td><img [src]=\"change.image\" width=\"150\" height=\"150\" /></td>\n    <td><button (click)=\"myEvent($event)\" type=\"submit\" class=\"btn btn-success\">Exchange</button></td>\n </tr>\n</table>"
 
 /***/ }),
 
@@ -1171,7 +1170,7 @@ module.exports = "<h2>Tasks</h2>\r\n<table class=\"table table-bordered\">\r\n <
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExchangeListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_change__ = __webpack_require__("../../../../../src/app/models/change.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1186,19 +1185,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ExchangeListComponent = (function () {
-    function ExchangeListComponent(router) {
+    function ExchangeListComponent(usersService, router) {
+        this.usersService = usersService;
         this.router = router;
-        this.exchanges = [
-            new __WEBPACK_IMPORTED_MODULE_1__models_change__["a" /* Change */](1, "Dead Space", "Game Survival Terror", "http://2.bp.blogspot.com/-uPDDofi3qOE/UM4VRppTwlI/AAAAAAAAAB0/nDW-TyihLQQ/s1600/Dead+Space+2+Caratula.jpg", "", true),
-            new __WEBPACK_IMPORTED_MODULE_1__models_change__["a" /* Change */](2, "Bloodborne", "RPG Survival", "https://i11b.3djuegos.com/juegos/11033/project_beast/fotos/ficha/project_beast-2739557.jpg", "", true),
-            new __WEBPACK_IMPORTED_MODULE_1__models_change__["a" /* Change */](3, "Uncharted 4", "Adventure", "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/2943/2943094_sd.jpg;maxHeight=550;maxWidth=642", "", true),
-            new __WEBPACK_IMPORTED_MODULE_1__models_change__["a" /* Change */](4, "Mario Odyssey", "Adventure", "https://images-na.ssl-images-amazon.com/images/I/91-VfRp-i0L._SY679_.jpg", "", true),
-        ];
+        this.exchanges = [];
     }
     ExchangeListComponent.prototype.ngOnInit = function () {
-        this.exchanges;
+        var _this = this;
+        this.usersService.listAllChanges().subscribe(function (userResponse) {
+            _this.exchanges = userResponse;
+        });
     };
-    ExchangeListComponent.prototype.myEvent = function (event) {
+    ExchangeListComponent.prototype.myEvent = function (event, change) {
         this.router.navigate(['/okChanges']);
     };
     return ExchangeListComponent;
@@ -1209,10 +1207,10 @@ ExchangeListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/exchange-list-page/exchange-list-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/exchange-list-page/exchange-list-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
 ], ExchangeListComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=exchange-list-page.component.js.map
 
 /***/ }),
@@ -1238,7 +1236,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<head>\r\n    <link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\" type=\"text/css\">\r\n    <link href=\"https://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\r\n</head>\r\n\r\n\r\n<div class=\"jumbotron text-center\">\r\n    <h1>Brother Games</h1>\r\n    <p>Search Game</p>\r\n    <form [formGroup]=\"homeForm\" (ngSubmit)=\"onSubmit()\" novalidate>\r\n        <div class=\"form-group\">\r\n            <input type=\"text\" class=\"form-control\" size=\"50\" id=\"name\" placeholder=\"Search Game\" required>\r\n\r\n\r\n                <button type=\"submit\" class=\"btn btn-success\" >Search</button>\r\n\r\n            </div>\r\n    </form>\r\n</div>\r\n\r\n<div id=\"about\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-8\">\r\n            <h2>About Brother Games </h2><br>\r\n            <h4>On this page you can search, consult and exchange the video games you want, in addition to consulting the prices of each of them in the different internet gaming platforms.</h4>\r\n            <br>\r\n            <h4>To be able to exchange a game you must first register to be able to log in and make the exchange</h4>\r\n\r\n        </div>\r\n\r\n        <div id=\"centerbrand\">\r\n\r\n            <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"300\" height=\"200\">\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "\n<head>\n    <link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\" type=\"text/css\">\n    <link href=\"https://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n</head>\n\n\n<div class=\"jumbotron text-center\">\n    <h1>Brother Games</h1>\n    <p>Search Game</p>\n    <form [formGroup]=\"homeForm\" (ngSubmit)=\"onSubmit()\" novalidate>\n        <div class=\"form-group\">\n            <input type=\"text\" class=\"form-control\" size=\"50\" id=\"name\" placeholder=\"Search Game\" required>\n\n\n                <button type=\"submit\" class=\"btn btn-success\" >Search</button>\n\n            </div>\n    </form>\n</div>\n\n<div id=\"about\" class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-sm-8\">\n            <h2>About Brother Games </h2><br>\n            <h4>On this page you can search, consult and exchange the video games you want, in addition to consulting the prices of each of them in the different internet gaming platforms.</h4>\n            <br>\n            <h4>To be able to exchange a game you must first register to be able to log in and make the exchange</h4>\n\n        </div>\n\n        <div id=\"centerbrand\">\n\n            <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"300\" height=\"200\">\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1377,7 +1375,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/profile-page/profile-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<script src=\"//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js\"></script>\r\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\r\n\r\n\r\n<div class=\"container\">\r\n    <form [formGroup]=\"userForm\">\r\n        <div>\r\n            <img src={{user.image}} width=\"250\" height=\"250\" />\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <div>\r\n            <p for=\"firstname\"> <b>Name:</b></p>\r\n            <label id=\"firstname\">{{user.firstname}} {{user.lastname}}</label>\r\n        </div>\r\n\r\n        <div>\r\n            <p for=\"email\"><b>Email:</b></p>\r\n            <label id=\"email\">{{user.email}}</label>\r\n        </div>\r\n\r\n        <div>\r\n            <p for=\"username\"><b>Username:</b></p>\r\n            <label id=\"username\">{{user.username}}</label>\r\n        </div>\r\n\r\n        <div>\r\n            <p for=\"aboutYou\"><b>About me:</b></p>\r\n            <label id=\"aboutYou\">{{user.description}}</label>\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <button type=\"button\" class=\"btn btn-primary\" routerLinkActive=\"/editProfile\" routerLink=\"/editProfile\">Edit Profile</button>\r\n    </form>\r\n\r\n</div>"
+module.exports = "<script src=\"//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n\n\n<div class=\"container\">\n        <div>\n            <img src={{user.image}} width=\"250\" height=\"250\" />\n        </div>\n        <br>\n        <br>\n        <div>\n            <p for=\"firstname\"> <b>Name:</b></p>\n            <label id=\"firstname\">{{user.firstname}} {{user.lastname}}</label>\n        </div>\n\n        <div>\n            <p for=\"email\"><b>Email:</b></p>\n            <label id=\"email\">{{user.email}}</label>\n        </div>\n\n        <div>\n            <p for=\"username\"><b>Username:</b></p>\n            <label id=\"username\">{{user.username}}</label>\n        </div>\n\n        <div>\n            <p for=\"aboutYou\"><b>About me:</b></p>\n            <label id=\"aboutYou\">{{user.description}}</label>\n        </div>\n        <br>\n        <br>\n        <button type=\"button\" class=\"btn btn-primary\" routerLinkActive=\"/\" routerLink=\"/\">Accept</button>\n\n</div>\n"
 
 /***/ }),
 
@@ -1412,18 +1410,10 @@ var ProfilePageComponent = (function () {
     }
     ProfilePageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userService.getUser('prueba2@mail.com').subscribe(function (data) {
-            _this.user = data;
-        }, function (error) {
-            console.log("error");
-        });
-        this.userForm = this.formBuilder.group({
-            firstname: '',
-            lastname: '',
-            email: '',
-            username: '',
-            aboutYou: '',
-            image: ''
+        var data = sessionStorage.getItem("email");
+        this.userService.getUser(data).subscribe(function (todosResponse) {
+            _this.user = todosResponse;
+            _this.router.navigate(['profile']);
         });
     };
     return ProfilePageComponent;
@@ -1463,7 +1453,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/register-page/register-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <br>\r\n    <div id=\"centerbrand\">\r\n        <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"170\" height=\"80\">\r\n    </div>\r\n    <h2 class=\"text-center\">REGISTER TO BROTHERS GAMES</h2>\r\n    <br>\r\n    <br>\r\n\r\n    <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\" novalidate>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"description\">Username</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"username\" formControlName=\"username\" required>\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"priority\">Email</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"email\" formControlName=\"email\" required>\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"priority\">Password</label>\r\n            <input type=\"password\" class=\"form-control\" id=\"password\" formControlName=\"password\" required>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"priority\">Url image</label>\r\n            <input type=\"password\" class=\"form-control\" id=\"image\" formControlName=\"image\" required>\r\n        </div>        <div class=\"form-group\">\r\n            <label for=\"priority\">Description</label>\r\n            <input type=\"password\" class=\"form-control\" id=\"description\" formControlName=\"description\" required>\r\n        </div>\r\n        <br>\r\n        <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!registerForm.valid\">REGISTER</button>\r\n\r\n    </form>\r\n</div>\r\n\r\n\r\n"
+module.exports = "<div class=\"container\">\n    <br>\n    <div id=\"centerbrand\">\n        <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"170\" height=\"80\">\n    </div>\n    <h2 class=\"text-center\">REGISTER TO BROTHERS GAMES</h2>\n    <br>\n    <br>\n\n    <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\" novalidate>\n\n        <div class=\"form-group\">\n            <label for=\"description\">Name</label>\n            <input type=\"text\" class=\"form-control\" id=\"firstname\" formControlName=\"firstname\" required>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"description\">Username</label>\n            <input type=\"text\" class=\"form-control\" id=\"username\" formControlName=\"username\" required>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"priority\">Email</label>\n            <input type=\"text\" class=\"form-control\" id=\"email\" formControlName=\"email\" required>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"priority\">Password</label>\n            <input type=\"password\" class=\"form-control\" id=\"password\" formControlName=\"password\" required>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"priority\">Url image</label>\n            <input type=\"text\" class=\"form-control\" id=\"image\" formControlName=\"image\" required>\n        </div>        <div class=\"form-group\">\n            <label for=\"priority\">Description</label>\n            <input type=\"text\" class=\"form-control\" id=\"description\" formControlName=\"description\" required>\n        </div>\n        <br>\n        <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!registerForm.valid\">REGISTER</button>\n\n    </form>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1497,6 +1487,7 @@ var RegisterComponent = (function () {
     }
     RegisterComponent.prototype.ngOnInit = function () {
         this.registerForm = this.formBuilder.group({
+            firstname: '',
             username: '',
             email: '',
             password: '',
@@ -1506,7 +1497,7 @@ var RegisterComponent = (function () {
     };
     RegisterComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.todoUser.registerUser(this.registerForm.get('username').value, this.registerForm.get('email').value, this.registerForm.get('password').value, this.registerForm.get('image').value, this.registerForm.get('description').value).subscribe(function (serverResponse) {
+        this.todoUser.registerUser(this.registerForm.get('firstname').value, this.registerForm.get('username').value, this.registerForm.get('email').value, this.registerForm.get('password').value, this.registerForm.get('image').value, this.registerForm.get('description').value).subscribe(function (serverResponse) {
             _this.router.navigate(['/signin']);
         }, function (error) {
             console.log(error);
@@ -1623,7 +1614,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/sign-in/sign-in-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <br>\r\n  <div id=\"centerbrand\">\r\n\r\n    <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"170\" height=\"80\">\r\n  </div>\r\n\r\n  <h2 class=\"text-center\">SIGN IN BROTHERS GAMES</h2>\r\n  <br>\r\n  <br>\r\n  <form [formGroup]=\"signInForm\" (ngSubmit)=\"doLogin()\" novalidate>\r\n\r\n    <div class=\"form-group\">\r\n      <label  for=\"description\">Email</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"email\" formControlName=\"email\" required>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"priority\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"alterEgo\" formControlName=\"password\" required>\r\n    </div>\r\n    <br>\r\n    <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!signInForm.valid\">SIGN IN</button>\r\n\r\n\r\n    <p class=\"text-danger mt-1\" *ngIf=\"loginError\">{{loginError}}</p>\r\n  </form>\r\n</div>"
+module.exports = "<div class=\"container\">\n  <br>\n  <div id=\"centerbrand\">\n\n    <img id=\"brand\"  src=\"/assets/images/videojuegos.jpg\" width=\"170\" height=\"80\">\n  </div>\n\n  <h2 class=\"text-center\">SIGN IN BROTHERS GAMES</h2>\n  <br>\n  <br>\n  <form [formGroup]=\"signInForm\" (ngSubmit)=\"doLogin()\" novalidate>\n\n    <div class=\"form-group\">\n      <label  for=\"description\">Email</label>\n      <input type=\"text\" class=\"form-control\" id=\"email\" formControlName=\"email\" required>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"priority\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"alterEgo\" formControlName=\"password\" required>\n    </div>\n    <br>\n    <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!signInForm.valid\">SIGN IN</button>\n\n\n    <p class=\"text-danger mt-1\" *ngIf=\"loginError\">{{loginError}}</p>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -1665,6 +1656,9 @@ var SignInPageComponent = (function () {
         var _this = this;
         this.usersService.login(this.signInForm.get('email').value, this.signInForm.get('password').value).subscribe(function (loginResponse) {
             _this.router.navigate(['/']);
+            sessionStorage.setItem("email", _this.signInForm.get('email').value);
+            var data = _this.usersService.getUser(_this.signInForm.get('email').value);
+            console.log(data + _this.signInForm.get("email").value);
         }, function (error) {
             _this.loginError = 'Error Signing in: ' + (error && error.message ? error.message : '');
         });
@@ -1792,7 +1786,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/user-edit-page/user-edit-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <h2>Edit User</h2>\r\n    <form [formGroup]=\"todoForm\" (ngSubmit)=\"onSubmit()\" novalidate>\r\n      <div class=\"form-group\">\r\n        <label for=\"firstname\">Name</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"firstname\" formControlName=\"firstname\" required>\r\n      </div>\r\n  \r\n      <div class=\"form-group\">\r\n        <label for=\"lastname\">LastName</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lastname\" formControlName=\"lastname\" required>\r\n      </div>\r\n  \r\n      <div class=\"form-group\">\r\n        <label for=\"image\">Url Image</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"image\" formControlName=\"image\" required>\r\n      </div>\r\n  \r\n      <button type=\"submit\" class=\"btn btn-success\">Save</button>\r\n  \r\n    </form>\r\n  </div>"
+module.exports = "<div class=\"container\">\n    <h2>Edit User</h2>\n    <form [formGroup]=\"todoForm\" (ngSubmit)=\"onSubmit()\" novalidate>\n      <div class=\"form-group\">\n        <label for=\"firstname\">Name</label>\n        <input type=\"text\" class=\"form-control\" id=\"firstname\" formControlName=\"firstname\" required>\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"lastname\">LastName</label>\n        <input type=\"text\" class=\"form-control\" id=\"lastname\" formControlName=\"lastname\" required>\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"image\">Url Image</label>\n        <input type=\"text\" class=\"form-control\" id=\"image\" formControlName=\"image\" required>\n      </div>\n  \n      <button type=\"submit\" class=\"btn btn-success\">Save</button>\n  \n    </form>\n  </div>"
 
 /***/ }),
 
@@ -1833,12 +1827,13 @@ var UserEditPageComponent = (function () {
             lastname: '',
             image: '',
             username: '',
-            description: ''
+            description: '',
+            email: ''
         });
     };
     UserEditPageComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.todoUser.registerUser(this.todoForm.get('firstname').value, this.todoForm.get('lastname').value, this.todoForm.get('image').value, this.todoForm.get('username').value, this.todoForm.get('description').value).subscribe(function (serverResponse) {
+        this.todoUser.registerUser(this.todoForm.get('firstname').value, this.todoForm.get('lastname').value, this.todoForm.get('image').value, this.todoForm.get('username').value, this.todoForm.get('description').value, this.todoForm.get('email').value).subscribe(function (serverResponse) {
             _this.router.navigate(['/users']);
         }, function (error) {
             console.log(error);
@@ -2126,6 +2121,7 @@ TodoService = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_user__ = __webpack_require__("../../../../../src/app/models/user.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__ = __webpack_require__("../../../../rxjs/add/observable/of.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_change__ = __webpack_require__("../../../../../src/app/models/change.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2152,6 +2148,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var UsersService = (function (_super) {
     __extends(UsersService, _super);
     function UsersService(config, authService, http) {
@@ -2159,6 +2156,8 @@ var UsersService = (function (_super) {
         _this.config = config;
         _this.authService = authService;
         _this.http = http;
+        _this.cont = 0;
+        _this.changes = [];
         _this.users = [
             // tslint:disable-next-line:max-line-length
             // tslint:disable-next-line:whitespace
@@ -2181,8 +2180,8 @@ var UsersService = (function (_super) {
     UsersService.prototype.create = function (id, firstname, lastname, image, username, description) {
         return this.post(this.resourceUrl, new __WEBPACK_IMPORTED_MODULE_5__models_user__["a" /* User */](id, firstname, lastname, image, username, description));
     };
-    UsersService.prototype.registerUser = function (username, email, password, image, description) {
-        return this.post('user/', { username: username, email: email, password: password, image: image, description: description }).map(function (loginResponse) {
+    UsersService.prototype.registerUser = function (firstname, username, email, password, image, description) {
+        return this.post('user/', { firstname: firstname, username: username, email: email, password: password, image: image, description: description }).map(function (loginResponse) {
             if (loginResponse) {
             }
         });
@@ -2202,6 +2201,16 @@ var UsersService = (function (_super) {
     };
     UsersService.prototype.currentUser = function () {
         return this.get(this.resourceUrl + '/' + sessionStorage.getItem("email"));
+    };
+    UsersService.prototype.listChanges = function () {
+        return this.get('user/changes/' + sessionStorage.getItem("email"));
+    };
+    UsersService.prototype.createChange = function (value0, value1, value2, value3, bool) {
+        this.cont += 1;
+        return this.post('user/changes/' + sessionStorage.getItem("email"), new __WEBPACK_IMPORTED_MODULE_7__models_change__["a" /* Change */](this.cont, value0, value1, value2, value3, bool));
+    };
+    UsersService.prototype.listAllChanges = function () {
+        return this.get('user/changes');
     };
     return UsersService;
 }(__WEBPACK_IMPORTED_MODULE_1__common_api_service__["a" /* APIService */]));

@@ -2,13 +2,15 @@
 package com.eci.cosw.springbootsecureapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 
 @Entity
-@Table (name="games")
+@Table (name="ALM_GAMES")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Game implements java.io.Serializable{
     private int id;
@@ -20,8 +22,8 @@ public class Game implements java.io.Serializable{
 
 
     //private List<Game> games;
-    // private List<Seller> sellers;
-    //private List<Comment> comments;
+    private List<Seller> sellers;
+    private List<Comment> comments;
 
     public Game(){}
 
@@ -52,6 +54,7 @@ public class Game implements java.io.Serializable{
     }*/
 
     @Id
+    @GeneratedValue
     @Column(name="id",nullable = false,length = 150)
     public int getId() {
         return id;
@@ -98,16 +101,20 @@ public class Game implements java.io.Serializable{
     }
 
 
-  /*  @OneToMany(mappedBy="idGame")
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="GAMES_id")
+    @Fetch(FetchMode.JOIN)
     public List<Seller> getSellers() {
         return sellers;
     }
 
-   / public void setSellers(List<Seller> sellers) {
+   public void setSellers(List<Seller> sellers) {
         this.sellers = sellers;
     }
 
-    @OneToMany(mappedBy="gameId")
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="GAMES1_id")
+    @Fetch(FetchMode.JOIN)
     public List<Comment> getComments() {
         return comments;
     }
@@ -115,6 +122,6 @@ public class Game implements java.io.Serializable{
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-*/
+
 
 }
